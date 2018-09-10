@@ -3,14 +3,12 @@ import React, {Component} from "react";
 class ToDo extends Component{
     render(){
         return(
-            <div>
-            <li>
-
+        
+             <li>
+                <input type="checkbox" checked={this.props.isCompleted} onChange={this.props.toggleComplete}/>
                 <span>{this.props.description}</span>
-                <input type="checkbox" checked = {this.props.isCompleted} />
-                
             </li>
-            </div>
+            
         )
     }
 }
