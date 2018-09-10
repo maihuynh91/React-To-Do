@@ -33,11 +33,18 @@ handleChange(e){
   this.setState({newTodoDescription: e.target.value})
 }
 
+deleteToDo(index){
+  const result = this.state.todos.filter((element, indx)=>{
+    return indx !== index
+  })
+  this.setState({todos: result})
+}
+
   render(){
     return(
       <div className="App">
       {this.state.todos.map((todo, index) => 
-        <ToDo key={index} description={todo.description} isCompleted={todo.isCompleted} toggleComplete={()=> this.toggleComplete(index)}/>
+        <ToDo key={index} description={todo.description} isCompleted={todo.isCompleted} toggleComplete={()=> this.toggleComplete(index)} deleteToDo={()=>this.deleteToDo(index)}/>
       )}
      
     <form onSubmit={(e)=> this.handleSubmit(e)}>
